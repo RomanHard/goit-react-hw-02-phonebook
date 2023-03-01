@@ -4,6 +4,7 @@ import { nanoid } from 'nanoid';
 export default class App extends React.Component {
   state = {
     contacts: [],
+    filter: '',
     name: '',
     number: '',
   };
@@ -15,9 +16,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="form_feedback">
+        <h1 className="title">Phonebook</h1>
         <div className="container">
-          <h2 className="title">Name</h2>
+          <h3 className="title">Name</h3>
           <input
             className="input_name"
             type="text"
@@ -28,7 +30,7 @@ export default class App extends React.Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
           />
-          <h2 className="title">Number</h2>
+          <h3 className="title">Number</h3>
           <input
             className="input_number"
             type="tel"
@@ -70,12 +72,25 @@ export default class App extends React.Component {
         </div>
         <div className="container_render">
           <h2>Contacts</h2>
+          <p>Find contacts by name</p>
+          <input
+            className="input_filter"
+            type="text"
+            name="filter"
+            value={this.state.filter}
+            onChange={this.handleChange}
+          />
+
           <ul>
-            {this.state.contacts.map((contact) => (
-              <li key={contact.id}>
-                {contact.name}: {contact.number}
-              </li>
-            ))}
+            {this.state.contacts
+              .filter((contact) =>
+                contact.name.toLowerCase().includes(this.state.filter)
+              )
+              .map((contact) => (
+                <li key={contact.id}>
+                  {contact.name}: {contact.number}
+                </li>
+              ))}
           </ul>
         </div>
       </form>
