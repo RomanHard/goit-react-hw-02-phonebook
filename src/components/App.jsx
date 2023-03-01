@@ -1,29 +1,19 @@
 import React from 'react';
 export default class App extends React.Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    contacts: [],
+    name: '',
   };
   render() {
     return (
       <div>
-        <h1>Give feedback</h1>
-        <button onClick={() => this.setState({ good: this.state.good + 1 })}>
-          Good
-        </button>
-        <button
-          onClick={() => this.setState({ neutral: this.state.neutral + 1 })}
-        >
-          Neutral
-        </button>
-        <button onClick={() => this.setState({ bad: this.state.bad + 1 })}>
-          Bad
-        </button>
-        <h2>Statistics</h2>
-        <p>Good: {this.state.good}</p>
-        <p>Neutral: {this.state.neutral}</p>
-        <p>Bad: {this.state.bad}</p>
+        <input
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+          required
+        />
       </div>
     );
   }
