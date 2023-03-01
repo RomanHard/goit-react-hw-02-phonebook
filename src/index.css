@@ -78,3 +78,15 @@
   color: #333;
   margin-bottom: 20px;
 }
+
+.button_delete {
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}

@@ -145,6 +145,7 @@ class ContactList extends React.Component {
         {filteredContacts.map((contact) => (
           <li key={contact.id} className="item">
             {contact.name}: {contact.number}
+            <button className="button_delete">Delete</button>
           </li>
         ))}
       </ul>
