@@ -20,6 +20,12 @@ export default class App extends React.Component {
     this.setState({ number: e.target.value });
   };
 
+  handleDelete = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id),
+    }));
+  };
+
   render() {
     return (
       <form className="form_feedback">
@@ -42,6 +48,7 @@ export default class App extends React.Component {
           <ContactList
             contacts={this.state.contacts}
             filter={this.state.filter}
+            onDelete={this.handleDelete}
           />
         </div>
       </form>
@@ -133,6 +140,12 @@ class Filter extends React.Component {
 }
 
 class ContactList extends React.Component {
+  deleteContact = (id) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== id),
+    }));
+  };
+
   render() {
     const { contacts, filter } = this.props;
     const normalizedFilter = filter.toLowerCase();
