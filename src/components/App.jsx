@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactForm from './contactForm/ContactForm';
 import Filter from './filter/Filter';
+import ContactList from './contactList/ContactList';
 
 export default class App extends React.Component {
   state = {
@@ -63,25 +64,4 @@ export default class App extends React.Component {
       </form>
     );
   }
-}
-
-function ContactList({ contacts, onDeleteContact }) {
-  return (
-    <ul className="list">
-      {contacts.map((contact) => (
-        <li key={contact.id} className="item">
-          <p className="text">
-            {contact.name}: {contact.number}
-          </p>
-          <button
-            className="button_delete"
-            type="button"
-            onClick={() => onDeleteContact(contact.id)}
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
 }
