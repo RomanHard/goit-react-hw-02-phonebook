@@ -46,11 +46,7 @@ export default class App extends React.Component {
         <h1 className="title">Phonebook</h1>
         <ContactForm
           contacts={this.state.contacts}
-          onAddContact={(contact) =>
-            this.setState({
-              contacts: [...this.state.contacts, contact],
-            })
-          }
+          onAddContact={this.handleAddContact}
         />
         <div className="container_render">
           <h2>Contacts</h2>

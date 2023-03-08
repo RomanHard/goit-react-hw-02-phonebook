@@ -12,17 +12,8 @@ export default class ContactForm extends React.Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-
   handleSubmit = (e) => {
     e.preventDefault();
-    const existingContact = this.props.contacts.find(
-      (contact) => contact.name === this.state.name
-    );
-
-    if (existingContact) {
-      alert('Такой контакт вже існує!');
-      return;
-    }
 
     const contact = {
       id: nanoid(),
